@@ -1,0 +1,32 @@
+#Antes de poder conectarse a una base de datos de IBM DB2, necesita el Controlador 
+#del servidor de datos de IBM DB2 instalado en su equipo (requisito mínimo es el 
+#Paquete de controladores de servidor de datos de IBM (controlador DS) ). 
+#Seleccione el controlador que coincida con la instalación de Power Query (32 bits o 64 bits).
+1) Instalar Power Query (32 o 64 bits de acuerdo al excel que tenga instalado)
+2) Instalar el controlador de servidor IBM (ODBC driver for IBM)
+3) Configurar la coneción desde:
+	> Panel de control
+	> Configurar origenes de datos ODBC (32 0 64). Elegir de acuerdo a excel (32 o 64 bits)
+	> Se levanta la ventana de Administrador de origen de datos ODBC >  DSN Usuario > Agregar
+	> Se levant una ventana en el que se ha de seleccionar el driver > Seleccionar el driver IBM DB2 ODBC DIRVER
+	> Inmediatamente sale una ventana el el que se configrará la conexión
+	> Poner el nombre del origen de datos y agrear alias de la base de datos,click en add o añadir
+	> Sale una ventana en el que se agrega la descripcion de la la base de datos
+	> User ID o Identificacion del usuario se agrega el usuario con el que se conecta a la base de datos y su correspondiente contraseña
+	> En la misma ventana ubicarse en configuraciones avanzadas o advanced settings
+	> Agregar el hostname (192.168.1.77 ejmplo), agregar database (nombre de dase de datos), protol (TCP/IP) y port(50000)
+	> Estas son las unicas configuracciones que se realizar click en aceptar
+	> Puedes probar la conexión desde la ventana Administrador de origen de datos ODBC en el que ya se visualiza la conexión
+	>Seleccionar la conexón y clik en configurar
+	> Nuevamente sale la ventana CLI/ODBC Settings que hemos visto antes, solo click eb Connect y podrás ver se la conexión ha tenido éxito
+	> Ya puedes abrir excel y obtener los datos de IBM DB2
+	> Abre excel y ve a las pestaña de datos o data
+	> Selecciona la opción de otras fuentes en la que se desplega una lista de opciones
+	> Selecciona Desde microsoft Quuery
+	> Se levanta una ventana en el que puedes observar la conexion se hicimos en los pasos anteriores
+	> Puedes exportarlo a excel o verlo directamente desde microsfot query
+	> Ahora puedes divertirte
+
+https://support.office.com/es-es/article/Conectarse-a-una-base-de-datos-de-IBM-DB2-Power-Query-0163e2e8-2944-4f24-85c0-10ecb1bc731f
+http://www.oraxcel.com/projects/sqlxl/help/techniques/connecting/db2_odbc.html
+http://www.ryslander.com/how-to-install-and-configure-db2-odbc-driver/
