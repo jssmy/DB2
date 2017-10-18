@@ -1,0 +1,27 @@
+#para hacer seguitmiento de los queries que los usuarios ejecutan
+#una de las meneras es creave un evento monitor
+#para ejecutar los comandos es encesario ejecutar la consola en modo administrador
+#para linux sudo
+#para windows buscar la cmd y ejecutarlo en modo administrador
+#cuando se tenga la consola en modo administrador
+#en windows ejecutar el comando "db2cmd"
+#este comando abrirá la consola de db2 en el que podrás ejecutar los comandos directamente para db2
+# --- PASOS PARA CREAR EVENT MONITOR
+#1) Conectarse a la base de datos
+#	se debe conectar a la base de datos del cual se hará seguimiento, ejecutar el siguiento commando para windows
+	db2 connect to database nombre-DB
+2)  Crear evento monitor
+# 	Para crear el evento monitor se requiere como datos asignar el nombre al evento monitor y elegir una ruta
+#	en el que se guardará los eventos que se registren, por ejempo c:\eventos\
+	db2 create event monitor monitor-name for statements write to file 'ruta\evento'
+3) Habilitar monitor
+# 	Por defecto el monitor se encuentra habilitaro, por lo cual no registra los queries de los usuarios
+#	habilitado => state=1 deshabilitado => state=0
+	db2 set event monitor nombre-name state=1
+4) Obtener seguimiento
+#	En cuanto el monitor se encuentre habilitado se podrá guardar los eventos registrados en la carpeta en el que
+#	se asignó en el paso 2, ahora que tienes registrados los eventos se debe obtener los datos
+#	El siguiente comando tien como entradas la ruta donde se ecuentra el evento monitor y la ruta en el que
+#	quiere que se guarde el resultado y el nombre del archivo
+	db2evmon -path ruta\monitor > ruta\resultado\file.txt
+#Finalmente podrás visualizar todos los queries que los usarios han realizado
